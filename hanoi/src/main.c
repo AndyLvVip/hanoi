@@ -16,7 +16,7 @@ void testHanoi(const int);
 int main(int argc, char** argv) {
 	int i;
 	if(argc < 2 || !(i = atoi(argv[1]))) {
-		printf("usage: hanoi [number]");
+		printf("usage: hanoi [number]\n");
 		exit(EXIT_SUCCESS);
 	}
 	testHanoi(i);
