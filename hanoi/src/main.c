@@ -11,9 +11,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void testHanoi();
+void testHanoi(const int);
 
-int main(void) {
-	testHanoi();
+int main(int argc, char** argv) {
+	int i;
+	if(argc < 2 || !(i = atoi(argv[1]))) {
+		printf("usage: hanoi [number]");
+		exit(EXIT_SUCCESS);
+	}
+	testHanoi(i);
 	return EXIT_SUCCESS;
 }

@@ -6,22 +6,24 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "hanoi.h"
-#define NUM 3
 static void printItem(void* val);
 
 long count = 0;
 
-void testHanoi() {
+void testHanoi(const int num) {
 	Hanoi h;
-	int vals[NUM];
-	for(int i = 0; i < NUM; i++)
-		vals[i] = i + 1;
-	hanoiInit(&h, vals, sizeof(int), NUM);
+	int* vals = malloc(sizeof(int) * num);
+	int* _vals = vals;
+	for(int i = 0; i < num; i++)
+		*_vals++ = i + 1;
+	hanoiInit(&h, vals, sizeof(int), num);
 	printHanoi(&h, printItem);
 	hanoi(&h, printItem);
-	hanoiDestroy(&h);
 	printf("\ntotal exe count: %ld\n", count);
+	hanoiDestroy(&h);
+	free(vals);
 }
 
 static void printItem(void* val) {
