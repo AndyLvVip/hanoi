@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include "hanoi.h"
-#define NUM 3
+#define NUM 4
 static void printItem(void* val);
 
 long count = 0;
